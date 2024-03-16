@@ -9,6 +9,7 @@ return {
             vim.keymap.set("n", "<leader>fn", builtin.find_files, {})
             vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 
+            vim.keymap.set("n", "<C-f>", builtin.lsp_document_symbols, {})
             vim.keymap.set("n", "<leader>ff", function()
                 vim.ui.input({ prompt = "Workspace symbols: " }, function(query)
                     builtin.lsp_workspace_symbols({ query = query })
