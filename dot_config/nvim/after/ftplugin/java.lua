@@ -57,6 +57,14 @@ local config = {
 local status_callback = function(_, result)
 	if result.message == "ServiceReady" then
 		vim.notify("LSP Ready", nil, { title = "JDTLS" })
+	elseif result.message:find("^Init") then
+		vim.notify("LSP Starting", nil, { title = "JDTLS" })
+	elseif
+		result.message ~= "Ready"
+		and result.message ~= "OK"
+		and not result.message:find("% Starting Java Language Server$")
+	then
+		vim.notify(result.message, nil, { title = "JDTLS" })
 	end
 end
 
