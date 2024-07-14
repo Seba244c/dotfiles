@@ -1,0 +1,19 @@
+# Catpuccin Color Scheme
+import = [
+  # uncomment the flavour you want below:
+  # "~/.config/alacritty/catppuccin-latte.toml"
+  # "~/.config/alacritty/catppuccin-frappe.toml"
+  "~/.config/alacritty/catppuccin-macchiato.toml"
+  # "~/.config/alacritty/catppuccin-mocha.toml"
+]
+
+[font]
+normal = { family = "JetBrainsMono NF", style = "Regular" }
+italic = { family = "JetBrainsMono NF", style = "Italic" }
+bold = { family = "JetBrainsMono NF", style = "Bold" }
+bold_italic = { family = "JetBrainsMono NF", style = "Bold Italic" }
+size = 12
+
+#[shell]
+#program = "~/.config/alacritty/tmux-chooser.sh"
+#args = "-AsDev"
