@@ -11,6 +11,9 @@ return {
 					-- Lua
 					null_ls.builtins.formatting.stylua,
 
+					-- C+++
+					null_ls.builtins.formatting.clang_format,
+
 					-- JS (Eslint and Prettier)
 					-- Python
 					null_ls.builtins.formatting.black,
