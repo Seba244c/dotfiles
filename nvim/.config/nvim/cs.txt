@@ -1,0 +1,32 @@
+Navigating & Search
+  :CS - Opens this file
+
+  <C-p> Opens the Filetree
+  <C-n> Search for git files
+  <space>fn Search for any files
+  <space>fg Search with grep
+
+  <C-f> Search for symbols in document
+  <space>ff Search for symbols in workspace
+
+Utils
+  <C-d> Toggles popup terminal
+  <space>gp Preview git changes
+
+LSP
+  K Hover
+  gd Goes to definition
+  gD Goes to declaration
+  gi Goes to implementation
+  gr Goes to references
+  gf Formats current file
+  <F2> Rename symbol
+  <F4> Code actions
+
+Trouble
+  <space>xx Shows workspace diagnostics
+  <space>xX Shows document diagnostics
+  <space>xQ Shows quickfixes
+
+Debugging
+
