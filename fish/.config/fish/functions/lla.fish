@@ -1,3 +1,3 @@
 function lla
-    exa -lgha $argv
+    eza -lgha $argv
 end
