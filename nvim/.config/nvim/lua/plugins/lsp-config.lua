@@ -27,10 +27,19 @@ return {
     {
         "neovim/nvim-lspconfig",
         config = function()
+            local capabilities = require("cmp_nvim_lsp").default_capabilities()
+            capabilities = vim.tbl_deep_extend("force", capabilities, {
+                offsetEncoding = { "utf-32" },
+                general = {
+                    positionEncodings = { "utf-32" },
+                },
+            })
+
             local lspconfig = require("lspconfig")
             for i, server in ipairs(servers) do
                 if server == "clangd" then
                     lspconfig[server].setup({
+                        capabilities = capabilities,
                         name = "clangd",
                         cmd = { "clangd", "--background-index", "--clang-tidy", "--log=verbose" },
                         initialization_options = {
@@ -39,6 +48,7 @@ return {
                     })
                 elseif server == "lua_ls" then
                     lspconfig[server].setup({
+                        capabilities = capabilities,
                         settings = {
                             Lua = {
                                 workspace = {
@@ -48,7 +58,7 @@ return {
                         },
                     })
                 else
-                    lspconfig[server].setup({})
+                    lspconfig[server].setup({ capabilities = capabilities })
                 end
             end
 
