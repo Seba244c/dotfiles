@@ -1,0 +1,25 @@
+# Web : SSH Manager, config file
+# Define entries like this
+# [[strings]]
+# name="My Name"
+# type="ssh"
+# address="example.com"
+# user="root"
+
+[[strings]]
+name="Media Server"
+type="ssh"
+address="192.168.86.44"
+user="ssnoer"
+
+[[strings]]
+name = "Pterodactyl Panel"
+type = "ssh"
+address = "37.27.187.129"
+user = "root"
+
+[[strings]]
+name = "Pterodactyl Node"
+type = "ssh"
+address = "a.node-de.ptero.sebsa.dk"
+user = "ubuntu"
