@@ -17,6 +17,9 @@ bold = { family = "JetBrainsMono NF", style = "Bold" }
 bold_italic = { family = "JetBrainsMono NF", style = "Bold Italic" }
 size = 12
 
+[window]
+opacity = 0.8
+
 #[shell]
 #program = "~/.config/alacritty/tmux-chooser.sh"
 #args = "-AsDev"
