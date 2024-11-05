@@ -40,8 +40,7 @@ window#waybar.hidden {
 	color: @sky;
 	background: transparent;
 	font-size: 16px;
-	border-radius: 2px;
-    border-top: 2px solid transparent;
+	border-radius: 5px;
     border-bottom: 2px solid transparent;
 }
 
@@ -54,15 +53,13 @@ window#waybar.hidden {
 
 #workspaces button.active {
 	color: @mauve;
-    border-top: 2px solid @mauve;
-    border-bottom: 2px solid @mauve;
+    border-color: @mauve;
 }
 
 #workspaces button:hover {
 	transition: none;
 	box-shadow: inherit;
 	text-shadow: inherit;
-	color: @rosewater;
     border-color: @rosewater;
     color: @rosewater;
 }
@@ -93,6 +90,18 @@ window#waybar.hidden {
 	transition: none;
 	color: #1A1826;
 	background: @yellow;
+}
+
+#bluetooth {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 0px;
+	border-radius: 10px;
+	transition: none;
+	color: @text;
+	background: @blue;
 }
 
 #battery {

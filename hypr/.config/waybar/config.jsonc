@@ -7,6 +7,7 @@
     ],
     "modules-right": [
         "power-profiles-daemon",
+        "bluetooth",
         "pulseaudio",
         "network",
         "clock",
@@ -19,6 +20,10 @@
         "all-outputs": false,
         "warp-on-scroll": false,
         "format": "{name}"
+    },
+    "bluetooth": {
+        "format-on": "",
+        "format-connected": " {device_alias}"
     },
     "tray": {
         "icon-size": 18,
