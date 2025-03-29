@@ -1,0 +1,16 @@
+[Unit]
+Description=Runs Huenicorn
+
+[Service]
+#User=ssnoer
+#Group=ssnoer
+ExecStart=/bin/fish -lc './huenicorn'
+WorkingDirectory=/home/ssnoer/Dev/huenicorn/build/
+Restart=on-failure
+StandardOutput=file:%h/hue.log
+StandardError=file:%h/hue.log
+Environment="HOME=/home/ssnoer"
+Environment="XDG_SESSION_TYPE=wayland"
+
+[Install]
+WantedBy=default.target

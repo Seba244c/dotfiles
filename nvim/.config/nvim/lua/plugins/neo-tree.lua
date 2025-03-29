@@ -5,7 +5,10 @@ return {
         "nvim-lua/plenary.nvim",
         "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
         "MunifTanjim/nui.nvim",
-        "3rd/image.nvim",        -- Optional image support in preview window: See `# Preview Mode` for more information
+        {
+            "3rd/image.nvim",
+            build = false,
+        }, -- Optional image support in preview window: See `# Preview Mode` for more information
     },
     config = function()
         vim.keymap.set("n", "<C-p>", ":Neotree filesystem reveal left<CR>")
