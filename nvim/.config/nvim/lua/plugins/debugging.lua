@@ -3,7 +3,7 @@ return {
 		"jay-babu/mason-nvim-dap.nvim",
 		config = function()
 			require("mason-nvim-dap").setup({
-				ensure_installed = { "cpptools" },
+				ensure_installed = { "codelldb" },
 			})
 		end,
 	},
@@ -32,42 +32,38 @@ return {
 			end
 
 			local mason_registry = require("mason-registry")
-			local cpptools = mason_registry.get_package("cpptools")
+			local cpptools = mason_registry.get_package("codelldb")
 
-			dap.adapters.cppdbg = {
-				id = "cppdbg",
+			dap.adapters.codelldb = {
+				id = "codelldb",
 				type = "executable",
-				command = cpptools:get_install_path() .. "/extension/debugAdapters/bin/OpenDebugAD7",
+				command = cpptools:get_install_path() .. "/extension/adapter/codelldb",
 			}
 
-			--dap.configurations.cpp = {
-			--   {
-			--        name = "Launch file",
-			--        type = "cppdbg",
-			--        request = "launch",
-			--        program = function()
-			--            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-			--        end,
-			--        cwd = "${workspaceFolder}",
-			--       stopAtEntry = true,
-			--     },
-			--    {
-			--        name = "Attach to gdbserver :1234",
-			--        type = "cppdbg",
-			--        request = "launch",
-			--        MIMode = "gdb",
-			--        miDebuggerServerAddress = "localhost:1234",
-			--        miDebuggerPath = "/usr/bin/gdb",
-			--        cwd = "${workspaceFolder}",
-			--        program = function()
-			--           return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-			--        end,
-			--    },
-			--}
-
 			vim.keymap.set("n", "<leader>dt", dap.toggle_breakpoint, {})
-			vim.keymap.set("n", "<leader>dc", dap.continue, {})
 			vim.keymap.set("n", "<leader>dd", dapui.toggle, {})
+			vim.keymap.set({ "n", "v" }, "<leader>dh", function()
+				require("dap.ui.widgets").hover()
+			end, { desc = "DAP-UI: Hover Inspect" })
+			vim.keymap.set("n", "<Leader>ds", function()
+				local widgets = require("dap.ui.widgets")
+				widgets.centered_float(widgets.scopes)
+			end, { desc = "DAP-UI: Floating Scopes" })
+
+			vim.keymap.set("n", "<F10>", function()
+				if dap.session() then
+					dap.continue()
+				else
+					vim.cmd("Run")
+				end
+			end, { desc = "Run & Continue" })
+
+			vim.keymap.set("n", "<F9>", dap.step_over, { desc = "DAP: Step Over" })
+			vim.keymap.set("n", "<F11>", dap.step_into, { desc = "DAP: Step Into" })
+			vim.keymap.set("n", "<F12>", dap.step_out, { desc = "DAP: Step Out" })
+
+			vim.keymap.set("n", "<C-S-j>", "<cmd>lua require('dap').down()<cr>")
+			vim.keymap.set("n", "<C-S-k>", "<cmd>lua require('dap').up()<cr>")
 		end,
 	},
 }

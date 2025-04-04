@@ -29,4 +29,11 @@ Trouble
   <space>xQ Shows quickfixes
 
 Debugging
-
+  <F9> Step Over
+  <F10> Run & Launch Debugger & Continue
+  <F11> Step Into
+  <F12> Step Out
+  <space>dt Toggle Breakpoint
+  <space>dd Toggle DapUI
+  <space>dh Hover
+  <space>ds Scope
