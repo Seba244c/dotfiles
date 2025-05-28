@@ -7,7 +7,7 @@ Navigating & Search
   <space>fg Search with grep
 
   <C-f> Search for symbols in document
-  <space>ff Search for symbols in workspace
+  <A-f> Search for symbols in workspace
 
 Utils
   <C-d> Toggles popup terminal
